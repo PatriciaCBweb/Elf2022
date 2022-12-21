@@ -166,7 +166,8 @@ public class MainApp {
 					/*if(suma>result) {
 						result = suma;
 					}*/
-				}else if(datos[i]==-1 || datos[i]==datos[datos.length-1]) {
+				}
+				if(datos[i]==-1 || datos[datos.length-1]==datos[i]) {
 					if(suma>result1) {
 						//si result es mayor que result1 va a 1º
 						//1º que había pasa a 2º
@@ -191,11 +192,299 @@ public class MainApp {
 			//return result;
 		}//top_3
 
+	public static void juego() {
+		//char [] jugadasJ1 = {'A','B','C'};
+		//char [] jugadasJ2 = {'Y','X','Z'};
+		int puntuacionJ1 = 0;
+		int puntuacionJ2 = 0;
+		public static final String A='A';
+		public static final char B='B';
+		public static final char C='C';
+		public static final char X='X';
+		public static final char Y='Y';
+		public static final char Z='Z';
+		char [][] jugadas = {
+			{A, X},
+			{A, X},
+			{A, Z},
+			{B, X},
+			{A, X},
+			{B, Z},
+			{A, X},
+			{A, X},
+			{A, X},
+			{A, X},
+			{C, Z},
+			{C, Y},
+			{A, X},
+			{A, X},
+			{A, Z},
+			{C, Y},
+			{A, Z},
+			{B, Y},
+			{C, Z},
+			{A, X},
+			{B, Y},
+			{C, X},
+			{C, Z},
+			{C, Y},
+			{A, Y},
+			{B, X},
+			{B, X},
+			{A, X},
+			{B, X},
+			{A, X},
+			{C, X},
+			{B, Z},
+			{C, Y},
+			{A, X},
+			{A, X},
+			{C, Z},
+			{A, Z},
+			{A, X},
+			{B, X},
+			{B, X},
+			{A, X},
+			{B, X},
+			{B, Y},
+			{A, X},
+			{A, X},
+			{A, Z},
+			{A, Y},
+			{C, Y},
+			{A, Z},
+			{C, Z},
+			{C, Y},
+			{A, Z},
+			{A, X},
+			{B, Z},
+			{A, X},
+			{C, Y},
+			{B, Z},
+			{C, Y},
+			{A, X},
+			{A, Y},
+			{C, Y},
+			{A, Z}
+		};
+		char [] jugadasJ1 = new char [jugadas.length];
+		char [] jugadasJ2 = new char [jugadas.length];
+		for(int i=0;i<jugadasJ1.length;i++) {
+			for (int j=0;i<jugadas.length;j++) {
+				jugadasJ1[i] = jugadas[i][0];
+				jugadasJ2[i] = jugadas[i][1];
+			}
+		}
+		
+		for(int i=0;i<jugadasJ1.length;i++){
+			//JUGADOR 1
+			if(jugadasJ1[i]=='A') {
+				//piedra
+				puntuacionJ1 += 1;
+			}else if(jugadasJ1[i]=='B') {
+				//papel
+				puntuacionJ1 += 2;
+			}else {
+				//tijera
+				puntuacionJ1 += 3;
+			}
+			//JUGADOR 2
+			if(jugadasJ2[i]=='X') {
+				//piedra
+				puntuacionJ2 += 1;
+			}else if(jugadasJ2[i]=='Y') {
+				//papel
+				puntuacionJ2 += 2;
+			}else {
+				//tijera
+				puntuacionJ2 += 3;
+			}
+			//COMPARACIÓN TIRADAS
+			if(jugadasJ1[i]=='B' && jugadasJ2[i]=='X' || jugadasJ1[i]=='C' && jugadasJ2[i]=='Y' || jugadasJ1[i]=='A' && jugadasJ2[i]=='Z') {//papel-piedra
+				puntuacionJ1 += 6;
+				puntuacionJ2 += 0;
+			}/*else if(jugadasJ1[i]=='A' && jugadasJ2[i]=='Y') {//piedra-papel
+				puntuacionJ1 += 0;
+				puntuacionJ2 += 6;
+			}else if(jugadasJ1[i]=='C' && jugadasJ2[i]=='Y') {//tijera-papel
+				puntuacionJ1 += 6;
+				puntuacionJ2 += 0;
+			}else if(jugadasJ1[i]=='A' && jugadasJ2[i]=='Z') {//papel-tijera
+				puntuacionJ1 += 0;
+				puntuacionJ2 += 6;
+			}else if(jugadasJ1[i]=='A' && jugadasJ2[i]=='Z') {//piedra-tijera
+				puntuacionJ1 += 6;
+				puntuacionJ2 += 0;
+			}else if(jugadasJ1[i]=='C' && jugadasJ2[i]=='X') {//tijera-piedra
+				puntuacionJ1 += 0;
+				puntuacionJ2 += 6;
+			}*/
+			else if(jugadasJ1[i]=='A' && jugadasJ2[i]=='X' || jugadasJ1[i]=='B' && jugadasJ2[i]=='Y' || jugadasJ1[i]=='C' && jugadasJ2[i]=='Z') {
+				puntuacionJ1 += 3;
+				puntuacionJ2 += 3;
+			}else{
+				puntuacionJ1 += 0;
+				puntuacionJ2 += 6;
+			}
+		}//fin tiradas
+		//System.out.println(puntuacionJ1);
+		//System.out.println(puntuacionJ2);
+		if(puntuacionJ1>puntuacionJ2) {
+			System.out.println("Gana Jugador 1 con: "+puntuacionJ1+" puntos");
+		}else if(puntuacionJ1<puntuacionJ2) {
+			System.out.println("Gana Jugador 2 con: "+puntuacionJ2+" puntos");
+		}else {
+			System.out.println("Empate con: "+puntuacionJ2+" puntos");
+		}
+	}
+	
+	public static void juego2() {
+		char [][] jugadas = {{'A','Y'},{'B','X'},{'C','Z'}};
+		int jugadores = 2;
+		int puntuacionJ1 = 0;
+		int puntuacionJ2 = 0;
+		//public static final char A='A';
+		/*public static final char B='B';
+		public static final char C='C';
+		char [][] jugadas = {
+			{A, X},
+			{A, X},
+			{A, Z},
+			{B, X},
+			{A, X},
+			{B, Z},
+			{A, X},
+			{A, X},
+			{A, X},
+			{A, X},
+			{C, Z},
+			{C, Y},
+			{A, X},
+			{A, X},
+			{A, Z},
+			{C, Y},
+			{A, Z},
+			{B, Y},
+			{C, Z},
+			{A, X},
+			{B, Y},
+			{C, X},
+			{C, Z},
+			{C, Y},
+			{A, Y},
+			{B, X},
+			{B, X},
+			{A, X},
+			{B, X},
+			{A, X},
+			{C, X},
+			{B, Z},
+			{C, Y},
+			{A, X},
+			{A, X},
+			{C, Z},
+			{A, Z},
+			{A, X},
+			{B, X},
+			{B, X},
+			{A, X},
+			{B, X},
+			{B, Y},
+			{A, X},
+			{A, X},
+			{A, Z},
+			{A, Y},
+			{C, Y},
+			{A, Z},
+			{C, Z},
+			{C, Y},
+			{A, Z},
+			{A, X},
+			{B, Z},
+			{A, X},
+			{C, Y},
+			{B, Z},
+			{C, Y},
+			{A, X},
+			{A, Y},
+			{C, Y},
+			{A, Z}
+		};*/
+
+		
+		for(int i=0;i<jugadas.length;i++){//filas
+			for(int j=0;j<jugadores;j++) {//columnas
+				//JUGADOR 1
+				if(jugadas[i][0]=='A') {
+					//piedra
+					puntuacionJ1 += 1;
+				}else if(jugadas[i][0]=='B') {
+					//papel
+					puntuacionJ1 += 2;
+				}else if(jugadas[i][0]=='C') {
+					//tijera
+					puntuacionJ1 += 3;
+				}
+				//JUGADOR 2
+				if(jugadas[i][1]=='X') {
+					//piedra
+					puntuacionJ2 += 1;
+				}else if(jugadas[i][1]=='Y') {
+					//papel
+					puntuacionJ2 += 2;
+				}else if(jugadas[i][1]=='Z') {
+					//tijera
+					puntuacionJ2 += 3;
+				}
+			
+			
+				//COMPARACIÓN TIRADAS
+				if(jugadas[i][0]=='B' && jugadas[i][1]=='X' || jugadas[i][0]=='C' && jugadas[i][1]=='Y' || jugadas[i][0]=='A' && jugadas[i][1]=='Z') {//papel-piedra
+					puntuacionJ1 += 6;
+					puntuacionJ2 += 0;
+				}/*else if(jugadasJ1[i]=='A' && jugadasJ2[i]=='Y') {//piedra-papel
+					puntuacionJ1 += 0;
+					puntuacionJ2 += 6;
+				}else if(jugadasJ1[i]=='C' && jugadasJ2[i]=='Y') {//tijera-papel
+					puntuacionJ1 += 6;
+					puntuacionJ2 += 0;
+				}else if(jugadasJ1[i]=='A' && jugadasJ2[i]=='Z') {//papel-tijera
+					puntuacionJ1 += 0;
+					puntuacionJ2 += 6;
+				}else if(jugadasJ1[i]=='A' && jugadasJ2[i]=='Z') {//piedra-tijera
+					puntuacionJ1 += 6;
+					puntuacionJ2 += 0;
+				}else if(jugadasJ1[i]=='C' && jugadasJ2[i]=='X') {//tijera-piedra
+					puntuacionJ1 += 0;
+					puntuacionJ2 += 6;
+				}*/
+				else if(jugadas[i][0]=='A' && jugadas[i][1]=='X' || jugadas[i][0]=='B' && jugadas[i][1]=='Y' || jugadas[i][0]=='C' && jugadas[i][1]=='Z') {
+					puntuacionJ1 += 3;
+					puntuacionJ2 += 3;
+				}else{
+					puntuacionJ1 += 0;
+					puntuacionJ2 += 6;
+				}
+			}//for j
+		}//for i
+		System.out.println(puntuacionJ1);
+		System.out.println(puntuacionJ2);
+		if(puntuacionJ1>puntuacionJ2) {
+			System.out.println("Gana Jugador 1 con: "+puntuacionJ1+" puntos");
+		}else if(puntuacionJ1<puntuacionJ2) {
+			System.out.println("Gana Jugador 2 con: "+puntuacionJ2+" puntos");
+		}else {
+			System.out.println("Empate con: "+puntuacionJ2+" puntos");
+		}
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		System.out.println(calcula_maximo(datos));
-		top_3(datos);
+		//System.out.println(calcula_maximo(datos));
+		//top_3(datos);
+		juego();
+		juego2();
 	}//main
 
 }//MainApp
