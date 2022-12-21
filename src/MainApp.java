@@ -11,6 +11,8 @@
   Deberás sumar las calorías de cada saco y matener actualizado el máximo 
   valor que encuentres, para imprimirlo al final.*/
 
+//mensaje de prueba
+
 public class MainApp {
 
 	public static final int[] datos= {
