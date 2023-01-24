@@ -199,12 +199,12 @@ public class MainApp {
 		//char [] jugadasJ2 = {'Y','X','Z'};
 		int puntuacionJ1 = 0;
 		int puntuacionJ2 = 0;
-		public static final String A='A';
-		public static final char B='B';
-		public static final char C='C';
-		public static final char X='X';
-		public static final char Y='Y';
-		public static final char Z='Z';
+		final char A='A';
+		final char B='B';
+		final char C='C';
+		final char X='X';
+		final char Y='Y';
+		final char Z='Z';
 		char [][] jugadas = {
 			{A, X},
 			{A, X},
@@ -272,11 +272,13 @@ public class MainApp {
 		char [] jugadasJ1 = new char [jugadas.length];
 		char [] jugadasJ2 = new char [jugadas.length];
 		for(int i=0;i<jugadasJ1.length;i++) {
-			for (int j=0;i<jugadas.length;j++) {
+			for (int j=0;j<jugadas.length;j++) {
 				jugadasJ1[i] = jugadas[i][0];
 				jugadasJ2[i] = jugadas[i][1];
 			}
 		}
+		
+		//System.out.print(jugadasJ1[0]);
 		
 		for(int i=0;i<jugadasJ1.length;i++){
 			//JUGADOR 1
@@ -486,7 +488,7 @@ public class MainApp {
 		//System.out.println(calcula_maximo(datos));
 		//top_3(datos);
 		juego();
-		juego2();
+		//juego2();
 	}//main
 
 }//MainApp
